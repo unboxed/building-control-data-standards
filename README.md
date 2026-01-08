@@ -228,17 +228,4 @@ Useful contributions might include:
 - highlighting authority-specific constraints
 - sharing real-world submission pain points
 
----
-
-## Licence and intent
-
-This repository is published openly to support:
-- discussion,
-- experimentation,
-- and better shared understanding of Building Control data needs.
-
-It is **not** an official standard, endorsement, or policy proposal.
-
----
-
 > *If planning data standards made planning applications easier to validate, exchange, and analyse — what would the equivalent look like for Building Control?*
