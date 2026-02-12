@@ -1,20 +1,21 @@
 ## Application fields
 
-Core planning application structure containing reference information,
+Core building control application structure containing reference information,
 application types, submission details, modules, documents, and fees
 
 **Application fields module**
 
-field | name | description | required | notes
--- | -- | -- | -- | --
-reference | Reference | A unique reference for the data item | MUST |
-application-types | Application types[] | A list of planning application types that define the nature of the planning application | MUST | Select from the **application-type** enum
-application-sub-type | Application sub type | Further classification of the application type for specific variations within the main application type | MAY | Select from the **application-subtype** enum
-planning-authority | Planning authority | A reference of the planning authority the application has been submitted to, e.g. local-authority:CMD for London borough of Camden | MUST | Select from the **planning-authority** enum. Currently built by combining local-authority, development-corporation and national-park-authority datasets from planning.data.gov.uk
-submission-date | Submission date | Date the application is submitted in YYYY-MM-DD format | MUST |
-modules | Modules[] | List of required modules for this application that can be used to validate the application | MUST |
-documents | Documents[]{} | List of submitted documents with references and details | MUST |
-fee | Fee{} | The fee payable for the application including amounts and transaction details | MAY |
+field | name                       | description                                                                                             | required | notes
+-- |----------------------------|---------------------------------------------------------------------------------------------------------|----------| --
+reference | Reference                  | A unique reference for the data item                                                                    | MUST     |
+application-types | Application types[]        | A list of planning application types that define the nature of the planning application                 | MUST     | Select from the **application-type** enum
+application-sub-type | Application sub type       | Further classification of the application type for specific variations within the main application type | MAY      | Select from the **application-subtype** enum
+planning-application | Planning application       | A reference of the planning application that relates to the building control application                | MAY      |
+building-control-authority | Building control authority | A reference that relates to the local authority or supplier responsible for the application     | MUST     | Select from the **planning-authority** enum. Currently built by combining local-authority, development-corporation and national-park-authority datasets from planning.data.gov.uk
+submission-date | Submission date            | Date the application is submitted in YYYY-MM-DD format                                                  | MUST     |
+modules | Modules[]                  | List of required modules for this application that can be used to validate the application              | MUST     |
+documents | Documents[]{}              | List of submitted documents with references and details                                                 | MUST     |
+fee | Fee{}                      | The fee payable for the application including amounts and transaction details                           | MAY      |
 
 
 **Document component**
@@ -24,7 +25,7 @@ field | name | description | required | notes
 reference | Reference | A reference for the document | MUST |
 name | Name | The name or title of the document | MUST |
 description | Description | Brief description of what the document contains | MAY |
-document-types | Document types[] | List of codelist references that the document covers | MUST | Select from the **planning-requirement** enum
+document-types | Document types[] | List of codelist references that the document covers | MUST |
 file | File{} | The digital file or a reference to where the file is stored | MUST |
 
 
