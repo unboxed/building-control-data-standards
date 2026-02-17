@@ -256,4 +256,9 @@ This module captures legally required declarations.
   },
   "declarations": {
     "rbca-aware-of-obligations": true,
-    "rbca-registered
+    "rbca-registered-for-work-scope": true,
+    "not-higher-risk-building": true,
+    "approval-on-register-confirmed": true
+  }
+}
+```
