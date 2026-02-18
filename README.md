@@ -54,38 +54,13 @@ Where possible, this work:
 - applies explicit **validation rules**
 - separates **core application metadata** from domain-specific modules
 
-> The fields defined here are a **subset and adaptation** of those recommended for planning, adjusted to reflect Building Control needs.
+> The fields defined here are a **subset and adaptation** of those recommended for planning, adjusted to reflect Building Control needs and legislation.
 
 ---
 
-# Beyond Full Plans: Competent Persons Scheme Notifications
+# Beyond Full Plans
 
 Building Control does not consist solely of Full Plans and Building Notices.
 
-A significant proportion of regulatory activity arises from:
-
-- **Competent Persons Scheme (CPS) notifications**
-- Self-certified work (e.g. electrical, roofing, heating installations)
-- Bulk notifications submitted by scheme operators
-- Post-completion certificate-based workflows
-
-These differ fundamentally from Full Plans:
-
-| Full Plans | CPS Notification |
-|------------|-----------------|
-| Pre-approval | Post-completion notification |
-| Authority assesses compliance | Installer self-certifies |
-| Requires detailed plans | Requires certificate reference |
-| May involve inspection | Usually notification only |
-| Applicant-led | Scheme-led |
-
-Key characteristics of CPS notifications:
-
-- Often submitted in **batches**
-- Structured around a **certificate reference**
-- Installer registration is central
-- Limited technical drawing requirement
-- Event-driven rather than approval-driven
-
-This repository includes an exploratory CPS model in:
+This repository includes an exploratory CPS model and also one for Initial Notices.
 
