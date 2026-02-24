@@ -36,6 +36,8 @@ This schema treats the Initial Notice as:
 
 # Schema Overview
 
+---
+
 ## 1. Notice Metadata Module
 
 | field | required | notes |
@@ -54,31 +56,45 @@ This schema treats the Initial Notice as:
 
 ---
 
-## 2. Work Description Module
+## 2. Site Location Module
+
+The Initial Notice MUST identify the property to which it applies.
+
+This schema aligns with the canonical `site-details.site-location` structure used across submission types.
+
+| Field         | Type          | Required | Description                              |
+|---------------|--------------|----------|------------------------------------------|
+| site-details  | object        | MUST     | Container for site information           |
+| site-location | object        | MUST     | Identifies the regulated property        |
+| address       | object        | MUST     | Structured postal address                |
+| number-name   | string        | MUST     | Building number or name                  |
+| street        | string        | MUST     | Street name                              |
+| town-city     | string        | MUST     | Post town or city                        |
+| postcode      | string        | MUST     | Valid UK postcode                        |
+| uprns         | array[string] | MUST     | One or more 12-digit UPRNs               |
+
+### Validation Rules
+
+- `uprns` MUST contain at least one entry.
+- Each UPRN MUST be a 12-digit numeric string.
+- `postcode` MUST conform to UK postcode format.
+
+---
+
+## 3. Work Description Module
 
 | field | required | notes |
 |-------|----------|-------|
 | work-summary | MUST | Short description of works |
 | work-type | MUST | enum: alteration, extension, refurbishment, new-build, mixed |
 | use-of-building | MUST | Use class or free-text |
-| site-address | MUST | Structured address object |
 | higher-risk-building | MUST | boolean |
 | is-new-dwelling | MUST | boolean |
 | is-minor-work | MAY | boolean |
 
-### Site Address Component
-
-| field | required |
-|-------|----------|
-| number-name | MUST |
-| street | MUST |
-| town-city | MUST |
-| postcode | MUST |
-| uprn | MAY |
-
 ---
 
-## 3. Registered Building Control Approver Module
+## 4. Registered Building Control Approver Module
 
 | field | required | notes |
 |-------|----------|-------|
@@ -98,7 +114,7 @@ This schema treats the Initial Notice as:
 
 ---
 
-## 4. Dutyholders Module
+## 5. Dutyholders Module
 
 ### Person Intending to Carry Out the Work
 
@@ -129,7 +145,7 @@ This schema treats the Initial Notice as:
 
 ---
 
-## 5. Statutory Statements Module
+## 6. Statutory Statements Module
 
 This module captures legally required declarations.
 
@@ -145,7 +161,7 @@ This module captures legally required declarations.
 
 ---
 
-## 6. Drainage and Sewerage Module
+## 7. Drainage and Sewerage Module
 
 | field | required |
 |-------|----------|
@@ -156,7 +172,7 @@ This module captures legally required declarations.
 
 ---
 
-## 7. Commencement Module
+## 8. Commencement Module
 
 | field | required |
 |-------|----------|
@@ -170,7 +186,7 @@ This module captures legally required declarations.
 
 ---
 
-## 8. Consultation Undertakings Module
+## 9. Consultation Undertakings Module
 
 | field | required |
 |-------|----------|
@@ -181,7 +197,7 @@ This module captures legally required declarations.
 
 ---
 
-## 9. Compliance and Registration Declarations
+## 10. Compliance and Registration Declarations
 
 | field | required |
 |-------|----------|
@@ -192,7 +208,7 @@ This module captures legally required declarations.
 
 ---
 
-## 10. Signatures Module
+## 11. Signatures Module
 
 | field | required |
 |-------|----------|
@@ -214,21 +230,28 @@ This module captures legally required declarations.
     "regulations-version": "rbc-approvers-england-2024",
     "local-authority-code": "E09000000"
   },
+
+  "site-details": {
+    "site-location": {
+      "address": {
+        "number-name": "1",
+        "street": "Example Street",
+        "town-city": "London",
+        "postcode": "AA1 1AA"
+      },
+      "uprns": ["100000000000"]
+    }
+  },
+
   "work-description": {
     "work-summary": "Internal refurbishment and formation of new facilities",
     "work-type": "alteration",
     "use-of-building": "office",
-    "site-address": {
-      "number-name": "1",
-      "street": "Example Street",
-      "town-city": "London",
-      "postcode": "AA1 1AA",
-      "uprn": "100000000000"
-    },
     "higher-risk-building": false,
     "is-new-dwelling": false,
     "is-minor-work": false
   },
+
   "rbca": {
     "rbca-reference": "RBCA-0001",
     "rbca-name": "Example Building Control Ltd",
@@ -238,22 +261,26 @@ This module captures legally required declarations.
     "scope-confirmation": true,
     "no-financial-interest-declared": true
   },
+
   "dutyholders": {
     "person-intending-to-carry-out-work": {
       "name": "Placeholder Contractor Ltd",
       "address": "Contractor Address Placeholder"
     }
   },
+
   "commencement": {
     "proposed-commencement-date": "2025-02-01",
     "fifteen-percent-work-description": "Formation of internal partitions"
   },
+
   "consultations": {
     "fire-authority-consultation-required": true,
     "fire-authority-consultation-undertaken": true,
     "sewerage-consultation-required": false,
     "sewerage-consultation-undertaken": false
   },
+
   "declarations": {
     "rbca-aware-of-obligations": true,
     "rbca-registered-for-work-scope": true,
@@ -261,4 +288,3 @@ This module captures legally required declarations.
     "approval-on-register-confirmed": true
   }
 }
-```

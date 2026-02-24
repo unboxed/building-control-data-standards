@@ -50,7 +50,6 @@ The structure and naming conventions deliberately mirror those used in the
 Where possible, this work:
 
 - reuses planning-style **modules**
-- references **codelists** rather than free text
 - applies explicit **validation rules**
 - separates **core application metadata** from domain-specific modules
 
