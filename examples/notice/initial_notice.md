@@ -21,7 +21,7 @@ An Initial Notice:
 
 Unlike Full Plans:
 
-- It is not an approval application.
+- It is not an approval application, although it is akin to an approval.
 - It is a legal notification event.
 - It creates a regulatory state change.
 
