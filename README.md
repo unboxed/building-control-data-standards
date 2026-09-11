@@ -61,5 +61,5 @@ Where possible, this work:
 
 Building Control does not consist solely of Full Plans and Building Notices.
 
-This repository includes an exploratory CPS model and also one for Initial Notices.
+This repository includes an exploratory CPS model, one for Initial Notices and other candidate standards.
 

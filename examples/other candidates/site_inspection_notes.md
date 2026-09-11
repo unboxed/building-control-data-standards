@@ -1,0 +1,1 @@
+# Site Inspection Notes (Exploratory Schema)
